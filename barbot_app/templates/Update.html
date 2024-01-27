@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Admin</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body onload="Get_All_Student_Data()">
+    <!-- Start Navbar !-->
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="test.html">WebSite Admin</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="menu.html">Menu</a></li>
+            <li class="active"><a href="login.html">Login</a></li>
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Method <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="Update.html">Update</a></li>
+                <li><a href="insert.html">Insert</a></li>
+                <li><a href="Delete.html">Delete</a></li>
+              </ul>
+            </li>
+  
+
+            <!--<li><a href="#">Page 2</a></li> !-->
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            
+            <li><a href="menu.html"><span class="glyphicon glyphicon-log-in"></span> LogOut</a></li>
+          </ul>
+        </div>
+      </nav>
+      <!-- Close Navbar !-->
+    <div class="container-fluid p-5 bg-primary text-white text-center">
+      <h1>UI Update data into MongoDB</h1>
+      <p>สามารถทำการปรับแก้เเละอัพเดทข้อมูลเมนูเครื่องดื่ม</p>
+    </div>
+
+    <div class="container mt-3">
+      <div>
+        <h3 class="text-center mb-3">Update  Menu information</h3>
+
+        <div class="row mb-3">
+          <label class="col-sm-2 col-form-label">Name</label>
+          <div class="col-sm-10">
+            <select
+              class="form-select"
+              id="Select_student"
+              onchange="SelectedName()"
+            >
+              <option selected>Select Menu</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+            <label class="col-sm-2 col-form-label">Orange</label>
+            <div class="col-sm-10" style="display: flex; align-items: center;">
+              <input
+                type="number"
+                step="0.5"
+                min="0"
+                class="form-control"
+                id="input_Orange"
+                opacity="1"
+                style="margin-right: 5px;"   
+            />
+              <span>Ounce</span>
+          </div>
+          </div>
+  
+          <div class="row mb-3">
+            <label class="col-sm-2 col-form-label">Lemon</label>
+            <div class="col-sm-10" style="display: flex; align-items: center;">
+              <input
+                type="number"
+                step="0.5"
+                min="0"
+                class="form-control"
+                id="input_Lemon"
+                opacity="1"
+                style="margin-right: 5px;"   
+            />
+              <span>Ounce</span>
+          </div>
+          </div>
+  
+          <div class="row mb-3">
+              <label class="col-sm-2 col-form-label">Strawberry</label>
+              <div class="col-sm-10" div class="col-sm-10" style="display: flex; align-items: center;">
+                <input
+                  type="number"
+                  step="0.5"
+                  min="0"
+                  class="form-control"
+                  id="input_Strawberry"
+                  opacity="1"
+                  style="margin-right: 5px;"   
+            />
+              <span>Ounce</span>
+          </div>
+          </div>
+  
+          <div class="row mb-3">
+              <label class="col-sm-2 col-form-label">Pine_Apple</label>
+              <div class="col-sm-10" div class="col-sm-10" style="display: flex; align-items: center;">
+                <input
+                  type="number"
+                  step="0.5"
+                  min="0"
+                  class="form-control"
+                  id="input_Pine_Apple"
+                  opacity="1"
+                  style="margin-right: 5px;"   
+            />
+              <span>Ounce</span>
+          </div>
+          </div>
+  
+  
+          <div class="row mb-3">
+              <label class="col-sm-2 col-form-label">Red_Grenadine</label>
+              <div class="col-sm-10" div class="col-sm-10" style="display: flex; align-items: center;">
+                <input
+                  type="number"
+                  step="0.5"
+                  min="0"
+                  class="form-control"
+                  id="input_Red_Grenadine"
+                  opacity="1"
+                  style="margin-right: 5px;"   
+            />
+              <span>Ounce</span>
+            </div>
+            </div>
+          <div class="row mb-3">
+              <label class="col-sm-2 col-form-label">Blue_Grenadine</label>
+              <div class="col-sm-10" div class="col-sm-10" style="display: flex; align-items: center;">
+                <input
+                  type="number"
+                  step="0.5"
+                  min="0"
+                  class="form-control"
+                  id="input_Blue_Grenadine"
+                  opacity="1"
+                  style="margin-right: 5px;"   
+            />
+              <span>Ounce</span>
+            </div>
+            </div>
+  
+          <div class="row mb-3">
+              <label class="col-sm-2 col-form-label">Soda</label>
+              <div class="col-sm-10" div class="col-sm-10" style="display: flex; align-items: center;">
+                <input
+                  type="number"
+                  step="0.5"
+                  min="0"
+                  class="form-control"
+                  id="input_Soda"
+                  opacity="1"
+                  style="margin-right: 5px;"   
+            />
+              <span>Ounce</span>
+            </div>
+            </div>
+          <div class="row mb-3">
+              <label class="col-sm-2 col-form-label">Syrup</label>
+              <div class="col-sm-10" div class="col-sm-10" style="display: flex; align-items: center;">
+                <input
+                  type="number"
+                  step="0.5"
+                  min="0"
+                  class="form-control"
+                  id="input_Syrup"
+                  opacity="1"
+                  style="margin-right: 5px;"   
+            />
+              <span>Ounce</span>
+            </div>
+            </div>
+
+        <button onclick="Put_Student_Data()" class="btn btn-primary">
+          Update
+        </button>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    var all_data_students;
+
+    function Get_All_Student_Data() {
+      const api = "http://localhost:9000/students/";
+      console.log(["Api", api]);
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          // Typical action to be performed when the document is ready:
+          all_data_students = JSON.parse(xhttp.responseText);
+          console.log(all_data_students);
+          0;
+          for (let i = 0; i < all_data_students.length; i++) {
+            let selectBox = document.getElementById("Select_student");
+            let newOption = document.createElement("option");
+            newOption.value = all_data_students[i].name;
+            newOption.text = all_data_students[i].name;
+            selectBox.appendChild(newOption);
+          }
+        } else if (this.status == 404) {
+          console.log("ERROR");
+        }
+      };
+      xhttp.open("GET", api, true);
+      xhttp.send();
+    }
+
+    function SelectedName() {
+      let selectIndex = document.getElementById("Select_student").selectedIndex;
+      let selectDataIndex = selectIndex - 1;
+      console.log(selectDataIndex);
+      if (selectDataIndex >= 0) {
+        document.getElementById("input_Orange").value =
+          all_data_students[selectDataIndex].Orange;
+          document.getElementById("input_Lemon").value =
+          all_data_students[selectDataIndex].Lemon;
+          document.getElementById("input_Strawberry").value =
+          all_data_students[selectDataIndex].Strawberry;
+          document.getElementById("input_Pine_Apple").value =
+          all_data_students[selectDataIndex].Pine_Apple;
+          document.getElementById("input_Red_Grenadine").value =
+          all_data_students[selectDataIndex].Red_Grenadine;
+          document.getElementById("input_Blue_Grenadine").value =
+          all_data_students[selectDataIndex].Blue_Grenadine;
+          document.getElementById("input_Soda").value =
+          all_data_students[selectDataIndex].Soda;
+          document.getElementById("input_Syrup").value =
+          all_data_students[selectDataIndex].Syrup;
+      }
+    }
+
+    function Put_Student_Data() {
+      let _input_name = document.getElementById("Select_student").value;
+      let _input_Orange= document.getElementById("input_Orange").value;
+      let _input_Lemon = document.getElementById("input_Lemon").value;
+      let _input_Strawberry = document.getElementById("input_Strawberry").value;
+      let _input_Pine_Apple = document.getElementById("input_Pine_Apple").value;
+      let _input_Red_Grenadine = document.getElementById("input_Red_Grenadine").value;
+      let _input_Blue_Grenadine = document.getElementById("input_Blue_Grenadine").value;
+      let _input_Soda = document.getElementById("input_Soda").value;
+      let _input_Syrup = document.getElementById("input_Syrup").value;
+
+     
+      let data = {
+        Orange: _input_Orange,
+        Lemon: _input_Lemon,
+        Strawberry: _input_Strawberry,
+        Pine_Apple: _input_Pine_Apple,
+        Red_Grenadine: _input_Red_Grenadine,
+        Blue_Grenadine: _input_Blue_Grenadine,
+        Soda: _input_Soda,
+        Syrup: _input_Syrup,
+
+      };
+
+      const json_string = JSON.stringify(data);
+
+      console.log([data, json_string]);
+      const api = "http://localhost:9000/student/" + _input_name;
+
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          // Typical action to be performed when the document is ready:
+          let _res_data = xhttp.responseText;
+          console.log(_res_data);
+          alert(_res_data);
+        } else if (this.status == 404) {
+          console.log("ERROR");
+        }
+      };
+      xhttp.open("PUT", api, true);
+      xhttp.setRequestHeader("Content-type", "application/json;charset=UTF-8");
+      xhttp.send(json_string);
+    }
+
+    function logout() {
+              window.location.href = 'login.html'
+          }
+
+  </script>
+</html>
